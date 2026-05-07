@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg: #f9fafb;
+    --surface: #ffffff;
+    --surface-2: #f3f4f6;
+    --border: #e5e7eb;
+    --text: #111827;
+    --text-muted: #6b7280;
+    --brand: #2563eb;
+    --brand-light: #3b82f6;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-md border border-[var(--border)] bg-[var(--surface)] p-5 shadow-sm;
+  }
+
+  .btn-primary {
+    @apply bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2 rounded-md
+           transition-colors disabled:opacity-50;
+  }
+
+  .btn-secondary {
+    @apply bg-white hover:bg-gray-50 text-gray-700 font-medium px-4 py-2 rounded-md
+           border border-gray-300 transition-colors;
+  }
+
+  .btn-danger {
+    @apply bg-white hover:bg-red-50 text-red-600 font-medium px-4 py-2
+           rounded-md border border-red-200 transition-colors;
+  }
+
+  .input {
+    @apply w-full bg-white border border-gray-300 rounded-md px-3 py-2
+           text-gray-900 placeholder-gray-400 outline-none
+           focus:border-blue-500 focus:ring-1 focus:ring-blue-500 transition-all;
+  }
+
+  .label {
+    @apply block text-sm font-semibold text-gray-700 mb-1;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2 py-0.5 rounded text-[11px] font-bold uppercase tracking-wider;
+  }
+
+  .status-todo { @apply badge bg-gray-100 text-gray-600 border border-gray-200; }
+  .status-in-progress { @apply badge bg-blue-50 text-blue-600 border border-blue-200; }
+  .status-done { @apply badge bg-green-50 text-green-600 border border-green-200; }
+
+  .priority-low { @apply badge bg-slate-50 text-slate-500; }
+  .priority-medium { @apply badge bg-orange-50 text-orange-600; }
+  .priority-high { @apply badge bg-red-50 text-red-600; }
+}
